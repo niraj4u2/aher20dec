@@ -23,15 +23,14 @@
         scan: function (preferFrontCamera, showFlipCameraButton) {
             if (!this.checkSimulator()) {
                 cordova.plugins.barcodeScanner.scan(
-
-                    // success callback function
                     function (result) {
                         // wrapping in a timeout so the dialog doesn't free the app
                         setTimeout(function() {
-                            alert("We got a barcode\n" +
+                            window.location.href = getAbsolutePath()+result.text;
+                          /*  alert("We got a barcode\n" +
                                   "Result: " + result.text + "\n" +
                                   "Format: " + result.format + "\n" +
-                                  "Cancelled: " + result.cancelled);                            
+                                  "Cancelled: " + result.cancelled);  */                          
                         }, 0);
                     },
 
@@ -74,9 +73,12 @@
 
         checkSimulator: function() {
             if (window.navigator.simulator === true) {
-                alert('This plugin is not available in the simulator.');
+                app.navigate("index.html");
+                 //window.location.href =test;
+                //alert('This plugin is not available in the simulator.');
                 return true;
             } else if (window.cordova === undefined) {
+				app.navigate("index.html");
                 alert('Plugin not found. Maybe you are running in AppBuilder Companion app which currently does not support this plugin.');
                 return true;
             } else {
@@ -89,4 +91,6 @@
     app.demoService = {
         viewModel: new DemoViewModel()
     };
-})(window);
+})(window); 
+
+ 

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aher Book Registration</title>
+<!-- <link href="css/kendo.common.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="css/kendo.common-bootstrap.min.css" />
+<link href="css/kendo.bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="css/kendo.default.min.css" rel="stylesheet"> -->
+<link href="css/kendo.mobile.nova.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+</style>
+</head>
+<body class="loginbg">
+<!-- <div data-role="layout" data-id="foo" data-platform="ios">
+    <div data-role="header">iOS App</div>
+</div>
+
+<div data-role="layout" data-id="foo" data-platform="android">
+    <div data-role="header">Android App</div>
+</div> -->
+
+<!-- Start Template -->
+<div data-role="layout" data-id="default">
+<!-- <header data-role="header">
+<div data-role="navbar">
+<span data-role="view-title"></span>
+<a class="about-button" data-align="left" href="#/" data-role="button">Home</a>
+<a class="about-button" data-align="right" href="about.html" data-role="button">About</a>
+</div>
+</header> -->
+
+<!-- <footer data-role="footer" data-id="default">
+<div data-role="tabstrip">
+<a href="#index" data-icon="home">Home</a>
+<a href="about.html" data-icon="organize" data-rel="external">About Us</a>
+</div>
+</footer> -->
+</div>
+<!-- End Template -->
+
+<div data-title="Aher Book" data-role="view" data-layout="default" id="login">
+<section class="p15 logo_sec">
+<img src="images/logo.png" alt="Logo" />
+<div class="clear"></div>
+<img src="images/logoPic.png" alt="Logo" />
+</section>
+	<section class="p15 loginForm_sec">
+	<h1 class="mb10 mt20">Already Account</h1>
+	<p class="mt0 mr0 ml0 mb20">Fill up the below form to get access to our App</p>
+	<span class="error" id="flash_message"></span>
+	<div id="loader"  style="display:none;" class="loading"></div>
+	<form action="" method="POST" id="User_add" role="form" enctype="multipart/form-data">
+						 <div class="panel-body">
+							<div class="row">
+								
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>Title</label>
+										<select class="selectpicker form-control" data-live-search="true" tabindex="1" name="title">
+											<option value="" selected="">Select Title</option>
+											<option value="Miss">Miss</option>
+											<option value="Mrs.">Mrs.</option>
+											<option value="Mr.">Mr.</option>
+											<option value="Ma'am">Ma'am</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Middel Name</label>
+										<input name="middle_name" tabindex="3" value="" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>User Id</label>
+										<input name="user_name" value="" tabindex="5" class="form-control">
+										<small id="" class="form-text text-muted">* User id must be in this format eg:-abc9774</small>
+										
+									</div>
+									<div class="form-group">
+										<label>Password</label>
+										<input name="password" type="password" tabindex="7" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Confirm Password</label>
+										<input name="passconf" type="password" tabindex="8" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Mobile Number</label>
+										<input name="phone" tabindex="9" maxlength="10" value="" class="form-control">
+									</div>
+									
+									
+								</div>
+								<div class="col-lg-6">
+									<div class="form-group">
+										<label>First Name</label>
+										<input name="first_name" tabindex="2" value="" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Last Name</label>
+										<input name="last_name" tabindex="4" value="" class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Email</label>
+										<input name="email" tabindex="6" value="" class="form-control">
+									</div>
+								   
+								   
+									<div class="form-group">
+										<label>Address</label>
+										<textarea class="form-control" tabindex="11" rows="3" name="address"></textarea>
+									</div>
+									
+									 <div class="form-group">
+										<label>Commnet</label>
+										<textarea class="form-control" tabindex="12" rows="3" name="comment"></textarea>
+									</div>
+									
+								   
+								</div>
+								
+								<div class="col-lg-12">
+								<div class="form-group">
+									<div class="col-sm-4 col-sm-offset-2">
+										 <input type="button" onclick="FormRest()" class="btn btn-white" value="Cancel">
+										 
+										<button class="btn btn-primary" type="submit">Save</button>
+									</div>
+								</div>
+								</div>
+							
+							</div>
+						</div> 
+				 </form>
+			 <div class="clear"></div>
+	</section>
+</div>
+
+
+<!-- Multiple pages in single page view-->
+<!-- <div data-role="view" data-layout="default" id="about">
+About Page
+</div> -->
+<script src="js/config.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/kendo.all.min.js"></script>
+<script src="js/localdb.js" type="text/javascript" charset="utf-8"></script>
+<script>
+var app;
+app = new kendo.mobile.Application($(document.body), { transition: "slide" });
+ 
+   
+  $(document).ready(function(){
+	 var flag = false;
+    $('#User_add').submit(function() {
+		resetErrors();
+		var data = $(this).serializeArray();
+		var formData = $(this);
+         
+      var url = SiteUrl+"/user_app_register";  
+        $.ajax({
+            type: "POST",
+              url: url,
+              async: false,
+              data: data,
+              dataType:'json', 
+              type:'post',
+               // data : formData,
+                 success: function(data)
+                   {
+                     if(data.status==1){     
+							window.location.href = "login.html?registration=true";
+							//$('#User_add').submit();   
+					  }
+					  else if(data.status==0){
+						  flag = false;
+						if(jQuery.type(data.message)=='string'){
+							$('#flash_message').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+data.message+'</div>');
+						}else{
+							$.each(data.message,function(field_name,msg){
+							var msg_data = '<label class="error" for="'+field_name+'">'+msg+'</label>';
+							$('input[name="' + field_name + '"], select[name="' + field_name + '"]').addClass('inputTxtError').after(msg_data);
+							
+						});	
+					 }
+					}
+				}
+			});
+        return false;
+       });
+});
+function resetErrors() {
+		$('form input, form select').removeClass('inputTxtError');
+		$('#flash_message').html('');
+		$('label.error').remove();
+	}
+
+function FormRest() {
+	$("form").trigger('reset');
+}
+	
+</script>
+</body>
+</html>
